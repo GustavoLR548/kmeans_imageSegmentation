@@ -1,5 +1,12 @@
-kmeans_imageSegmentation
+# kmeans_imageSegmentation parallel
 ========================
+
+## How to use
+
+```
+g++ main.c -O3 -fopenmp  
+./a.out
+``` 
 
 Kmeans Clustering for Image Segmentation (Serial and Parallel)
 
