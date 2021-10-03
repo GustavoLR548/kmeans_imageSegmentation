@@ -35,6 +35,7 @@ float* k_means_omp(float *imageIn, int clusters, int dimension, int iterations)
 
     for(int iters = 0; iters<iterations ; iters++) {
         
+        #pragma omp parallel for default(none) shared(temp1,j,imageIn,means,accumulator,numPixelsCentroid,cluster,numElements,centroids,min_temp,distance)
         for ( i=0; i < numElements-1; i++){  //assignment step-> assign each point to cluster of closest centroid
 
             for ( j = 0; j < means; j++) {
