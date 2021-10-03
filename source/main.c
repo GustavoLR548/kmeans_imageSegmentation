@@ -1,4 +1,47 @@
+/*
 
+Informações do teste:
+
+width = 512
+height = 512
+iters = 300
+clusters = 50
+Imagem = testImageGrey.bm
+
+Tempo Sequencial
+
+CPU TIME: 15.622947 seconds 
+CPU TIME: 15.622221 seconds 
+CPU TIME: 15.611293 seconds
+CPU TIME: 15.649175 seconds
+CPU TIME: 15.626315 seconds
+
+Tempo paralelo
+
+2 núcleos:
+
+OMP TIME: 10.155589 seconds
+OMP TIME: 10.133549 seconds
+OMP TIME: 10.145111 seconds
+OMP TIME: 10.155699 seconds
+OMP TIME: 10.141030 seconds
+
+4 núcleos:
+
+OMP TIME: 10.993937 seconds
+OMP TIME: 10.502804 seconds
+OMP TIME: 11.685473 seconds
+OMP TIME: 11.353663 seconds
+OMP TIME: 10.313106 seconds 
+
+8 núcleos:
+
+OMP TIME: 10.319586 seconds
+OMP TIME: 10.242342 seconds
+OMP TIME: 10.226355 seconds
+OMP TIME: 10.200729 seconds
+OMP TIME: 10.214329 seconds
+*/
 
 #include <stdio.h>
 #include <stdlib.h>
