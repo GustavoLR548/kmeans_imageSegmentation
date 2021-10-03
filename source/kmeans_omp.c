@@ -23,8 +23,9 @@ float* k_means_omp(float *imageIn, int clusters, int dimension, int iterations)
     float min_temp = BIGNUM;
     float range = 255/(means-1);
  
+    //omp_set_num_threads(8);
+     
     //initialize step to set everything to zero
-
     #pragma omp parallel for
     for ( m = 0; m < means; m++) {
         centroids[m] = range*m;
