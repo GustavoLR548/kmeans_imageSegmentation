@@ -25,7 +25,6 @@ float* k_means_omp(float *imageIn, int clusters, int dimension, int iterations)
  
     //omp_set_num_threads(8);
      
-    //initialize step to set everything to zero
     #pragma omp parallel for
     for ( m = 0; m < means; m++) {
         centroids[m] = range*m;
@@ -37,7 +36,7 @@ float* k_means_omp(float *imageIn, int clusters, int dimension, int iterations)
         
         #pragma omp parallel for default(none) shared(temp1,j,imageIn,means,accumulator,numPixelsCentroid,cluster,numElements,centroids,min_temp,distance)
         for ( i=0; i < numElements-1; i++){  //assignment step-> assign each point to cluster of closest centroid
-
+  
             for ( j = 0; j < means; j++) {
                 distance = fabs(imageIn[i]-centroids[j]);// compare image to centroids
                 if (distance < min_temp){
@@ -54,7 +53,7 @@ float* k_means_omp(float *imageIn, int clusters, int dimension, int iterations)
         }
         
         //update centroids
-        #pragma omp parallel for schedule(guided) shared(numPixelsCentroid,accumulator,means,centroids) private(h)
+        #pragma omp parallel for schedule(guided)
         for ( h = 0; h < means; h++) {
             if (numPixelsCentroid[h] != 0){
                 centroids[h] = accumulator[h]/numPixelsCentroid[h];
@@ -73,7 +72,6 @@ float* k_means_omp(float *imageIn, int clusters, int dimension, int iterations)
         imageOut[n] = centroids[temp2];
     }
 
-    //#pragma omp parallel for ordered
     for ( m = 0; m < means; m++) {
         printf("%f \n", centroids[m]);
     }

@@ -33,3 +33,5 @@ source/.DS_Store
 *.exe
 *.out
 *.app
+
+*.txt
